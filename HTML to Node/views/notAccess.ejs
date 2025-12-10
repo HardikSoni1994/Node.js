@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Access Denied — Nexus</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #05060a;
+        --accent1: #ff66c4;
+        --accent2: #00e0ff;
+        --muted: rgba(233, 238, 248, 0.6);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(180deg, var(--bg), #071428);
+        color: #eef6ff;
+        padding: 24px;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 28px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        text-align: center;
+        max-width: 640px;
+        width: 100%;
+        box-shadow: 0 18px 48px rgba(3, 6, 12, 0.6);
+      }
+      h1 {
+        margin: 0 0 6px 0;
+        font-family: "JetBrains Mono";
+        font-size: 40px;
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      p {
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent2), var(--accent1));
+        color: #02121a;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .hint {
+        color: var(--muted);
+        margin-top: 12px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Access Denied</h1>
+      <p>
+        Your name doesn't meet the requirement. Names must be at least 4
+        characters long.
+      </p>
+      <a class="btn" href="/">Try Again</a>
+      <div class="hint">Example: <code>?name=Hardik</code></div>
+    </div>
+  </body>
+</html>

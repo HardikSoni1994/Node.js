@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Enter Name — Nexus</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-1: #08070a;
+        --bg-2: #0f1720;
+        --glass: rgba(255, 255, 255, 0.03);
+        --accent-1: #00e0ff;
+        --accent-2: #ff66c4;
+        --text: #e9eef8;
+        --muted: rgba(233, 238, 248, 0.6);
+        --card-radius: 18px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "Poppins", system-ui, -apple-system, sans-serif;
+        background: radial-gradient(
+            600px 400px at 10% 20%,
+            rgba(255, 102, 196, 0.06),
+            transparent 6%
+          ),
+          radial-gradient(
+            500px 350px at 85% 80%,
+            rgba(0, 224, 255, 0.05),
+            transparent 6%
+          ),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2));
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* container */
+      .container {
+        width: 660px;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: center;
+      }
+
+      /* left panel - intro */
+      .left {
+        padding: 28px 32px;
+      }
+      .logo {
+        font-family: "JetBrains Mono";
+        letter-spacing: 1.2px;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-family: "JetBrains Mono";
+        font-size: 38px;
+        margin: 0 0 8px 0;
+        color: var(--text);
+      }
+      p.lead {
+        color: var(--muted);
+        margin-bottom: 18px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* right card */
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--card-radius);
+        padding: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(8px) saturate(120%);
+        box-shadow: 0 18px 50px rgba(4, 6, 10, 0.7);
+      }
+      .card small {
+        color: var(--muted);
+        display: block;
+        margin-bottom: 14px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .input input {
+        background: transparent;
+        border: 0;
+        outline: none;
+        color: var(--text);
+        font-size: 15px;
+        width: 100%;
+      }
+
+      .btn {
+        margin-top: 14px;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 999px;
+        border: 0;
+        cursor: pointer;
+        background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+        color: #041226;
+        font-weight: 700;
+        font-size: 15px;
+        box-shadow: 0 12px 30px rgba(0, 224, 255, 0.08);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(0, 224, 255, 0.12);
+      }
+
+      /* subtle code-like footer */
+      .meta {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* floating accent lines */
+      .accents {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .line {
+        position: absolute;
+        width: 220px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.03),
+          transparent
+        );
+        opacity: 0.6;
+        transform-origin: left;
+        filter: blur(6px);
+      }
+      .line.one {
+        top: 8%;
+        left: 6%;
+        transform: rotate(12deg);
+        animation: glide 18s linear infinite;
+      }
+      .line.two {
+        bottom: 12%;
+        right: 8%;
+        transform: rotate(-10deg);
+        animation: glide 21s linear infinite reverse;
+      }
+
+      @keyframes glide {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(70px);
+        }
+      }
+
+      /* responsive */
+      @media (max-width: 880px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+        .left {
+          order: 2;
+        }
+        .card {
+          order: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accents">
+      <div class="line one"></div>
+      <div class="line two"></div>
+    </div>
+
+    <div class="container" role="main" aria-labelledby="mainTitle">
+      <div class="left">
+        <div class="logo">NEXUS • AUTH</div>
+        <h1 id="mainTitle">Quick check — tell us your name</h1>
+        <p class="lead">
+          Enter a name of at least 4 characters. Server-side validation will
+          allow access when your name matches the rule. This subtle theme uses
+          Poppins + JetBrains Mono fonts for a crisp look.
+        </p>
+        <p class="meta">
+          Tip: Use your real name or a short alias — it appears on the welcome
+          page.
+        </p>
+      </div>
+
+      <div class="card" aria-labelledby="cardTitle">
+        <h2
+          id="cardTitle"
+          style="
+            margin: 0 0 8px 0;
+            font-family: 'JetBrains Mono';
+            font-size: 16px;
+          "
+        >
+          Verify Name
+        </h2>
+        <small>Enter your name to continue</small>
+
+        <form id="nameForm" action="/" method="get" novalidate>
+          <div class="form-row">
+            <div class="input" title="Name">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                style="opacity: 0.7"
+              >
+                <path
+                  d="M12 12c2.761 0 5-2.686 5-6s-2.239-6-5-6-5 2.686-5 6 2.239 6 5 6zM3 22c0-3.314 4.03-6 9-6s9 2.686 9 6"
+                  stroke="white"
+                  stroke-opacity="0.65"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <input
+                id="nameInput"
+                name="name"
+                autocomplete="off"
+                placeholder="e.g. Hardik"
+              />
+            </div>
+          </div>
+
+          <button class="btn" type="submit">
+            <span style="margin-right: 8px">Continue</span> <strong>→</strong>
+          </button>
+        </form>
+
+        <div style="height: 8px"></div>
+        <div style="color: var(--muted); font-size: 13px">
+          Server rule:
+          <code
+            style="
+              background: rgba(0, 0, 0, 0.12);
+              padding: 4px 8px;
+              border-radius: 8px;
+            "
+            >name.length &gt; 3</code
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
