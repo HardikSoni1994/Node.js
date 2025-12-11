@@ -1,121 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>404 — Page not found</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Aurora Studio</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+<div class="digits" id="digits"></div>
 
-    <style>
-      :root {
-        --bg: #04111a;
-        --accent1: #00e0ff;
-        --accent2: #ff66c4;
-        --muted: rgba(233, 238, 248, 0.6);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(180deg, #03121a, #071426);
-        color: #eaf6ff;
-        padding: 28px;
-      }
-      .card {
-        max-width: 720px;
-        width: 100%;
-        padding: 36px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.03);
-        text-align: center;
-        box-shadow: 0 18px 48px rgba(4, 6, 10, 0.8);
-      }
-      h1 {
-        margin: 0;
-        font-family: "JetBrains Mono";
-        font-size: 86px;
-        background: linear-gradient(90deg, var(--accent2), var(--accent1));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      p {
-        color: var(--muted);
-        margin-top: 10px;
-        margin-bottom: 18px;
-      }
-      .btn {
-        display: inline-block;
-        padding: 12px 18px;
-        border-radius: 10px;
-        background: linear-gradient(90deg, var(--accent1), var(--accent2));
-        color: #02121a;
-        font-weight: 700;
-        text-decoration: none;
-      }
-      .digits {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 0;
-      }
-      .digit {
-        position: absolute;
-        color: rgba(0, 224, 255, 0.06);
-        font-weight: 700;
-        user-select: none;
-        animation: drift 16s linear infinite;
-      }
-      @keyframes drift {
-        0% {
-          transform: translateY(100vh);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-20vh);
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="digits" id="digits"></div>
+<div class="card hero-card" style="max-width:600px; text-align:center;">
+  <h1 class="hero-title">404</h1>
 
-    <div class="card">
-      <h1>404</h1>
-      <p>We couldn't find that page. Try returning home or checking the URL.</p>
-      <a class="btn" href="/">Return Home</a>
-    </div>
+  <p class="hero-desc">
+    This page does not exist inside Aurora Studio’s cinematic environment.
+  </p>
 
-    <script>
-      const cont = document.getElementById("digits");
-      const chars = "0123456789";
-      for (let i = 0; i < 16; i++) {
-        const el = document.createElement("div");
-        el.className = "digit";
-        el.textContent = chars[Math.floor(Math.random() * chars.length)];
-        el.style.left = Math.random() * 100 + "vw";
-        el.style.fontSize = 12 + Math.random() * 34 + "px";
-        el.style.animationDelay = Math.random() * 6 + "s";
-        cont.appendChild(el);
-      }
-    </script>
-  </body>
+  <a href="/" class="btn">Return Home</a>
+</div>
+
+<script>
+const cont = document.getElementById("digits");
+const chars="0123456789";
+for(let i=0;i<14;i++){
+  const d=document.createElement("div");
+  d.className="digit";
+  d.textContent=chars[Math.floor(Math.random()*chars.length)];
+  d.style.left=Math.random()*100+"vw";
+  d.style.fontSize=(12+Math.random()*34)+"px";
+  d.style.animationDelay=(Math.random()*6)+"s";
+  cont.appendChild(d);
+}
+</script>
+
+</body>
 </html>

@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 
 app.set('view engine', 'ejs');
+app.use('/', express.static('public'));
 
 // Middleware function to check 'name' query parameter
 const middleware = (req, res, next) => {

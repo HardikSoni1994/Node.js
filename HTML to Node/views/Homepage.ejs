@@ -1,219 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Welcome — Nexus</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome — Aurora Studio</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+<div class="digits" id="digits"></div>
 
-    <style>
-      :root {
-        --bg-1: #061018;
-        --accent-1: #00e0ff;
-        --accent-2: #ff66c4;
-        --card: #071022;
-        --muted: rgba(233, 238, 248, 0.6);
-        --radius: 16px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "Poppins", sans-serif;
-        background: radial-gradient(
-            600px 300px at 12% 18%,
-            rgba(255, 102, 196, 0.06),
-            transparent 8%
-          ),
-          radial-gradient(
-            500px 340px at 88% 82%,
-            rgba(0, 224, 255, 0.05),
-            transparent 8%
-          ),
-          linear-gradient(180deg, var(--bg-1), #03111a);
-        color: #e7f0fb;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
-      }
+<div class="container">
 
-      .wrapper {
-        width: 100%;
-        max-width: 980px;
-        display: grid;
-        grid-template-columns: 1fr 320px;
-        gap: 28px;
-        align-items: start;
-      }
+  <div class="card hero-card">
+    <h1 class="hero-title">Welcome to Aurora Studio</h1>
 
-      .main {
-        padding: 28px;
-        border-radius: var(--radius);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.015),
-          rgba(255, 255, 255, 0.01)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 18px 48px rgba(4, 6, 10, 0.75);
-      }
-      h1 {
-        font-family: "JetBrains Mono";
-        font-size: 34px;
-        margin: 0 0 8px 0;
-        color: transparent;
-        background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-      p.desc {
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
+    <p class="hero-desc">
+      You're successfully verified. Aurora Studio hosts cinematic UI experiments,
+      animation previews, and creative interface demos. Your name is now linked
+      to this viewing session.
+    </p>
 
-      .card-right {
-        padding: 22px;
-        border-radius: var(--radius);
-        text-align: center;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.008)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.03);
-      }
-      .avatar {
-        width: 110px;
-        height: 110px;
-        border-radius: 14px;
-        display: inline-grid;
-        place-items: center;
-        background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
-        margin: 0 auto 12px auto;
-        box-shadow: 0 14px 34px rgba(0, 224, 255, 0.06);
-        font-family: "JetBrains Mono";
-      }
-      .name {
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-      .meta {
-        color: var(--muted);
-      }
-
-      .actions {
-        margin-top: 16px;
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 10px 14px;
-        border: 0;
-        cursor: pointer;
-        font-weight: 700;
-      }
-      .btn-primary {
-        background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
-        color: #02111a;
-      }
-      .btn-ghost {
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        color: inherit;
-      }
-
-      @media (max-width: 980px) {
-        .wrapper {
-          grid-template-columns: 1fr;
-        }
-        .card-right {
-          order: -1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="main" role="main" aria-labelledby="welcomeTitle">
-        <h1 id="welcomeTitle">Welcome to Nexus</h1>
-        <p class="desc">
-          You're successfully verified. This page continues to use the
-          server-side rule you configured (name must be longer than 3
-          characters). The look uses Poppins for body and JetBrains Mono for
-          headings to create a modern, friendly developer aesthetic.
-        </p>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap">
-          <div
-            style="
-              flex: 1;
-              min-width: 220px;
-              background: rgba(255, 255, 255, 0.01);
-              padding: 14px;
-              border-radius: 12px;
-              border: 1px solid rgba(255, 255, 255, 0.03);
-            "
-          >
-            <div style="font-weight: 700; font-family: 'JetBrains Mono'">
-              Quick Tip
-            </div>
-            <div style="color: var(--muted); margin-top: 8px">
-              You can display the name by passing it in from server:
-              <code>res.render('Homepage',{name: req.query.name})</code>
-            </div>
-          </div>
-
-          <div
-            style="
-              flex: 1;
-              min-width: 220px;
-              background: rgba(255, 255, 255, 0.01);
-              padding: 14px;
-              border-radius: 12px;
-              border: 1px solid rgba(255, 255, 255, 0.03);
-            "
-          >
-            <div style="font-weight: 700; font-family: 'JetBrains Mono'">
-              Server Rule
-            </div>
-            <div style="color: var(--muted); margin-top: 8px">
-              name.length &gt; 3
-            </div>
-          </div>
-        </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <div class="small-card">
+        <strong>Aurora Tip</strong><br>
+        Your name appears across Aurora’s UI for personalization.
       </div>
 
-      <aside class="card-right" aria-label="Profile">
-        <div class="avatar">
-          <span style="font-size: 36px; color: white"
-            ><%= (typeof name !== 'undefined' && name) ?
-            name.charAt(0).toUpperCase() : (typeof req !== 'undefined' &&
-            req.query && req.query.name ? req.query.name.charAt(0).toUpperCase()
-            : 'U') %></span
-          >
-        </div>
-        <div class="name">
-          <%= (typeof name !== 'undefined' && name) ? name : ((typeof req !==
-          'undefined' && req.query && req.query.name) ? req.query.name : 'User')
-          %>
-        </div>
-        <div class="meta">Verified member</div>
-
-        <div class="actions">
-          <a href="/" class="btn btn-ghost">Change Name</a>
-          <button class="btn btn-primary">Explore</button>
-        </div>
-      </aside>
+      <div class="small-card">
+        <strong>Access Rule</strong><br>
+        name.length &gt; 3
+      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="card-right">
+    <div class="avatar">
+      <%= name.charAt(0).toUpperCase() %>
+    </div>
+
+    <div class="name"><%= name %></div>
+    <div class="meta">Studio Guest</div>
+
+    <a href="/" class="btn-ghost">Change Name</a>
+    <a href="#" class="btn" style="margin-top:10px; width:auto; padding:10px 20px;">View Demos</a>
+  </div>
+
+</div>
+
+<script>
+const cont = document.getElementById("digits");
+const chars="0123456789";
+for(let i=0;i<14;i++){
+  const d=document.createElement("div");
+  d.className="digit";
+  d.textContent=chars[Math.floor(Math.random()*chars.length)];
+  d.style.left=Math.random()*100+"vw";
+  d.style.fontSize=(12+Math.random()*34)+"px";
+  d.style.animationDelay=(Math.random()*6)+"s";
+  cont.appendChild(d);
+}
+</script>
+
+</body>
 </html>
