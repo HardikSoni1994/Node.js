@@ -16,6 +16,10 @@ const bookSchema = mongoose.Schema({
     book_lang: {
         type: String,
         required: true,
+    },
+    book_image: {
+        type: String,
+        required: true,
     }
 });
 
