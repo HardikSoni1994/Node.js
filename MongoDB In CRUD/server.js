@@ -11,6 +11,7 @@ app.use(express.urlencoded());
 
 // create root
 app.get("/", async (req, res) => {
+
   // all Book fetch
   const allBooks = await Book.find();
 
@@ -19,11 +20,12 @@ app.get("/", async (req, res) => {
   return res.render("table", { allBooks });
 });
 
+  // Add Book root (form.ejs)
 app.get("/addBookPage", (req, res) => {
   return res.render("form");
 });
 
-// Insert Book
+// Insert Book Logic
 app.post("/addBook", async (req, res) => {
   console.log(req.body);
 
@@ -47,6 +49,39 @@ app.post("/addBook", async (req, res) => {
     console.log("Book insertion faild..");
   }
 });
+
+// Edit Book root
+
+app.get('/editBook/:bookId', async (req, res) => {
+  console.log(req.params); // {bookId : 6942f1d68c4aff0a0f7bea34}
+
+  // const allBooks = await Book.find();
+ //  const book = allBooks.find((book) => book.id == req.params.bookId);
+
+ const book = await Book.findById(req.params.bookId);
+
+ console.log(book);
+
+ if (book) {
+  return res.render('edit', { book });
+ }
+ else{
+  return res.redirect('/');
+ }
+  
+});
+
+// Update Book Logic
+app.post('/updateBook', async (req, res) => {
+  console.log(req.body);
+
+  const updatedData = await Book.findByIdAndUpdate(req.body.id, req.body, { new: true});
+
+  console.log("Update :", updatedData);
+  
+  return res.redirect('/');
+  
+})
 
 // Delete Book
 

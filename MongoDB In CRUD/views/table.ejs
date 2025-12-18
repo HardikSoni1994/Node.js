@@ -39,7 +39,7 @@
       <td><%= book.book_lang %></td>
       <td><img src="<%= book.book_image %>" alt="" width="60px"></td>
       <td>
-        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-success"><a href="/editBook/<%= book.id %>" style="color: white; text-decoration: none;">Edit</a></button>
         <button class="btn btn-danger"><a href="/deleteBook?BookId=<%= book.id %>" style="color: white; text-decoration: none;">Delete</a></button>
     </td>
     </tr>
