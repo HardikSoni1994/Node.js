@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1c1c1c; /* Dark Theme Background */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Footer ko niche rakhne ke liye */
+}
+
+/* header */
+header.gym-header {
+    background-color: #000000;
+    color: goldenrod;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid goldenrod;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+}
+
+header.gym-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* section */
+section.gym-banner {
+    width: 100%;
+    height: 250px;
+    background-color: #333; 
+    /* Gym Image Background */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    
+    /* Flexbox for centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* banner */
+.banner-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px #000;
+    border: 2px solid goldenrod;
+    padding: 10px 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* main section */
+section.main-content {
+    padding: 40px 15px;
+    flex: 1; /* Yeh content area ko expand karega taaki footer niche rahe */
+}
+
+/* Table Styling Override for Dark Mode */
+.table {
+    --bs-table-bg: #2c2c2c;
+    --bs-table-color: white;
+    border: 1px solid #444;
+}
+
+.table th {
+    color: goldenrod;
+}
+
+/* Form Controls Styling */
+.form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: white;
+}
+
+.form-control:focus {
+    background-color: #444;
+    color: white;
+    border-color: goldenrod;
+    box-shadow: 0 0 5px goldenrod;
+}
+
+
+
+/* Placeholder color fix */
+::placeholder { 
+    color: #bbb !important;
+}
+
+/* footer */
+footer.gym-footer {
+    background-color: #000000;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Footer hamesha bottom me rahega */
+    border-top: 1px solid goldenrod;
+    font-size: 0.9rem;
+}
