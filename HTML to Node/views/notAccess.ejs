@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Access Denied — Aurora Studio</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Access Denied — Aurora Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="digits" id="digits"></div>
 
-<div class="digits" id="digits"></div>
+    <div class="card hero-card" style="max-width: 600px; text-align: center">
+      <h1 class="hero-title">Access Denied</h1>
 
-<div class="card hero-card" style="max-width:600px; text-align:center;">
-  <h1 class="hero-title">Access Denied</h1>
+      <p class="hero-desc">
+        Aurora Studio requires names with at least 2 characters to personalize
+        your cinematic experience.
+      </p>
 
-  <p class="hero-desc">
-    Aurora Studio requires names with at least 4 characters
-    to personalize your cinematic experience.
-  </p>
+      <a href="/" class="btn" style="text-decoration: none">Try Again</a>
+    </div>
 
-  <a href="/" class="btn">Try Again</a>
-</div>
-
-<script>
-const cont = document.getElementById("digits");
-const chars="0123456789";
-for(let i=0;i<12;i++){
-  const d=document.createElement("div");
-  d.className="digit";
-  d.textContent=chars[Math.floor(Math.random()*chars.length)];
-  d.style.left=Math.random()*100+"vw";
-  d.style.fontSize=(12+Math.random()*34)+"px";
-  d.style.animationDelay=(Math.random()*6)+"s";
-  cont.appendChild(d);
-}
-</script>
-
-</body>
+    <script>
+      // Container element jisme digits add karenge
+      const digitsContainer = document.getElementById("digits");
+      
+      // Numbers jo randomly show honge
+      const numbers = "0123456789";
+      
+      // 12 random digits create karenge
+      for (let i = 0; i < 12; i++) {
+        // Naya div element banate hai
+        const digitElement = document.createElement("div");
+        
+        // Div ko "digit" class dete hai CSS styling ke liye
+        digitElement.className = "digit";
+        
+        // Random number select karke div me text set karte hai
+        const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+        digitElement.textContent = randomNumber;
+        
+        // Horizontal position randomly set karte hai (0-100vw)
+        const randomLeftPosition = Math.random() * 100 + "vw";
+        digitElement.style.left = randomLeftPosition;
+        
+        // Font size randomly set karte hai (12px se 46px tak)
+        const randomFontSize = 12 + Math.random() * 34 + "px";
+        digitElement.style.fontSize = randomFontSize;
+        
+        // Animation delay randomly set karte hai (0-6 seconds)
+        const randomDelay = Math.random() * 6 + "s";
+        digitElement.style.animationDelay = randomDelay;
+        
+        // Final digit ko container me add karte hai
+        digitsContainer.appendChild(digitElement);
+      }
+    </script>
+  </body>
 </html>

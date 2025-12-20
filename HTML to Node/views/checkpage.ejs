@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Enter Name — Aurora Studio</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enter Name — Aurora Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="digits" id="digits"></div>
 
-<div class="digits" id="digits"></div>
+    <div class="container">
+      <div class="left">
+        <div class="logo">AURORA • STUDIO</div>
 
-<div class="container">
-  <div class="left">
-    <div class="logo">AURORA • STUDIO</div>
+        <h1>Tell us your name</h1>
 
-    <h1>Quick check — tell us your name</h1>
-
-    <p class="lead">
-      Enter a name of at least 4 characters. Aurora Studio personalizes your cinematic
-      demo experience — your name will appear on the welcome screen.
-    </p>
-  </div>
-
-  <div class="card hero-card">
-    <h2 class="hero-title">Verify Name</h2>
-    <p class="hero-desc">Enter your name to continue into Aurora Studio.</p>
-
-    <form action="/" method="get">
-      <div class="input">
-        <input type="text" name="name" placeholder="e.g. Nova">
+        <p class="lead">
+          Enter a name of at least 2 characters. Aurora Studio personalizes your
+          cinematic demo experience — your name will appear on the welcome
+          screen.
+        </p>
       </div>
 
-      <button class="btn">Continue →</button>
-    </form>
+      <div class="card hero-card">
+        <h2 class="hero-title">Verify Name</h2>
+        <p class="hero-desc">Enter your name to continue into Aurora Studio.</p>
 
-    <p style="color:var(--muted); font-size:13px; margin-top:10px">
-      Rule: <code>name.length &gt; 3</code>
-    </p>
-  </div>
-</div>
+        <form action="/" method="get">
+          <div class="input">
+            <input type="text" name="name" placeholder="e.g. Nova" />
+          </div>
 
-<script>
-const cont = document.getElementById("digits");
-const chars = "0123456789";
-for(let i=0;i<14;i++){
-  const d=document.createElement("div");
-  d.className="digit";
-  d.textContent = chars[Math.floor(Math.random()*chars.length)];
-  d.style.left = Math.random()*100 + "vw";
-  d.style.fontSize = (12+Math.random()*34)+"px";
-  d.style.animationDelay = (Math.random()*6)+"s";
-  cont.appendChild(d);
-}
-</script>
+          <button class="btn">Continue →</button>
+        </form>
 
-</body>
+        <p style="color: var(--muted); font-size: 13px; margin-top: 10px">
+          Warning : Character shoud be more than 2 or equal too.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Container element jisme digits add karenge
+      const digitsContainer = document.getElementById("digits");
+      
+      // Numbers jo randomly show honge
+      const numbers = "0123456789";
+      
+      // 14 random digits create karenge
+      for (let i = 0; i < 14; i++) {
+        // Naya div element banate hai
+        const digitElement = document.createElement("div");
+        
+        // Div ko "digit" class dete hai CSS styling ke liye
+        digitElement.className = "digit";
+        
+        // Random number select karke div me text set karte hai
+        const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+        digitElement.textContent = randomNumber;
+        
+        // Horizontal position randomly set karte hai (0-100vw)
+        const randomLeftPosition = Math.random() * 100 + "vw";
+        digitElement.style.left = randomLeftPosition;
+        
+        // Font size randomly set karte hai (12px se 46px tak)
+        const randomFontSize = 12 + Math.random() * 34 + "px";
+        digitElement.style.fontSize = randomFontSize;
+        
+        // Animation delay randomly set karte hai (0-6 seconds)
+        const randomDelay = Math.random() * 6 + "s";
+        digitElement.style.animationDelay = randomDelay;
+        
+        // Final digit ko container me add karte hai
+        digitsContainer.appendChild(digitElement);
+      }
+    </script>
+  </body>
 </html>

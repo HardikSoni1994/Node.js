@@ -1,66 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome — Aurora Studio</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome — Aurora Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="digits" id="digits"></div>
 
-<div class="digits" id="digits"></div>
+    <div class="container">
+      <div class="card hero-card">
+        <h1 class="hero-title">Welcome to Aurora Studio</h1>
 
-<div class="container">
+        <p class="hero-desc">
+          You're successfully verified. Aurora Studio hosts cinematic UI
+          experiments, animation previews, and creative interface demos. Your
+          name is now linked to this viewing session.
+        </p>
 
-  <div class="card hero-card">
-    <h1 class="hero-title">Welcome to Aurora Studio</h1>
-
-    <p class="hero-desc">
-      You're successfully verified. Aurora Studio hosts cinematic UI experiments,
-      animation previews, and creative interface demos. Your name is now linked
-      to this viewing session.
-    </p>
-
-    <div style="display:flex; gap:12px; flex-wrap:wrap;">
-      <div class="small-card">
-        <strong>Aurora Tip</strong><br>
-        Your name appears across Aurora’s UI for personalization.
+        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+          <div class="small-card">
+            <strong>Aurora Tip</strong><br />
+            Your name appears across Aurora’s UI for personalization.
+          </div>
+        </div>
       </div>
 
-      <div class="small-card">
-        <strong>Access Rule</strong><br>
-        name.length &gt; 3
+      <div class="card-right">
+        <div class="avatar"><%= name.charAt(0).toUpperCase() %></div>
+
+        <div class="name"><%= name %></div>
+        <div class="meta">Studio Guest</div>
+
+        <a href="/" class="btn-ghost" style="text-decoration: none"
+          >Change Name</a
+        >
+        <a
+          href="#"
+          class="btn"
+          style="
+            margin-top: 10px;
+            margin-left: 10px;
+            width: auto;
+            padding: 10px 20px;
+            text-decoration: none;
+          "
+          >View Demos</a
+        >
       </div>
     </div>
-  </div>
 
-  <div class="card-right">
-    <div class="avatar">
-      <%= name.charAt(0).toUpperCase() %>
-    </div>
-
-    <div class="name"><%= name %></div>
-    <div class="meta">Studio Guest</div>
-
-    <a href="/" class="btn-ghost">Change Name</a>
-    <a href="#" class="btn" style="margin-top:10px; width:auto; padding:10px 20px;">View Demos</a>
-  </div>
-
-</div>
-
-<script>
-const cont = document.getElementById("digits");
-const chars="0123456789";
-for(let i=0;i<14;i++){
-  const d=document.createElement("div");
-  d.className="digit";
-  d.textContent=chars[Math.floor(Math.random()*chars.length)];
-  d.style.left=Math.random()*100+"vw";
-  d.style.fontSize=(12+Math.random()*34)+"px";
-  d.style.animationDelay=(Math.random()*6)+"s";
-  cont.appendChild(d);
-}
-</script>
-
-</body>
+    <script>
+      // Container element jisme digits add karenge
+      const digitsContainer = document.getElementById("digits");
+      
+      // Numbers jo randomly show honge
+      const numbers = "0123456789";
+      
+      // 14 random digits create karenge
+      for (let i = 0; i < 14; i++) {
+        // Naya div element banate hai
+        const digitElement = document.createElement("div");
+        
+        // Div ko "digit" class dete hai CSS styling ke liye
+        digitElement.className = "digit";
+        
+        // Random number select karke div me text set karte hai
+        const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+        digitElement.textContent = randomNumber;
+        
+        // Horizontal position randomly set karte hai (0-100vw)
+        const randomLeftPosition = Math.random() * 100 + "vw";
+        digitElement.style.left = randomLeftPosition;
+        
+        // Font size randomly set karte hai (12px se 46px tak)
+        const randomFontSize = 12 + Math.random() * 34 + "px";
+        digitElement.style.fontSize = randomFontSize;
+        
+        // Animation delay randomly set karte hai (0-6 seconds)
+        const randomDelay = Math.random() * 6 + "s";
+        digitElement.style.animationDelay = randomDelay;
+        
+        // Final digit ko container me add karte hai
+        digitsContainer.appendChild(digitElement);
+      }
+    </script>
+  </body>
 </html>
