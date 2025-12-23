@@ -12,12 +12,12 @@
 
     <title>Book Management</title>
   </head>
-  <body>
+  <body style="background-color: whitesmoke;">
     <h1 style="text-align: center; margin-top: 10px; color: goldenrod;">View Book</h1>
 
     <div class="container col-12">
         <table class="table table-hover">
-  <thead>
+  <thead style="border: 2px solid black;">
     <tr>
       <th scope="col">No</th>
       <th scope="col">Book Name</th>
@@ -26,7 +26,6 @@
       <th scope="col">Book Language</th>
       <th scope="col">Book Image</th>      
       <th scope="col">action</th>      
-
     </tr>
   </thead>
   <tbody>
@@ -37,7 +36,8 @@
       <td><%= book.book_author %></td>
       <td><%= book.book_price %></td>
       <td><%= book.book_lang %></td>
-      <td><img src="<%= book.book_image %>" alt="" width="60px"></td>
+      <td>
+        <img src="<%= book.book_image %>" alt="<%= book.book_image %>" width="60px">
       <td>
         <button class="btn btn-success"><a href="/editBook/<%= book.id %>" style="color: white; text-decoration: none;">Edit</a></button>
         <button class="btn btn-danger"><a href="/deleteBook?BookId=<%= book.id %>" style="color: white; text-decoration: none;">Delete</a></button>
