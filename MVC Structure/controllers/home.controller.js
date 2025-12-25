@@ -5,4 +5,9 @@ const homePage = (req, res) => {
 const aboutPage = (req, res) => {
     return res.render('about');
 }
-module.exports = {homePage, aboutPage}
+
+const contactPage = (req, res) => {
+    return res.render('contact');
+}
+
+module.exports = {homePage, aboutPage, contactPage}

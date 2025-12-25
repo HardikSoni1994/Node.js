@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+</head>
+<body style="background-color: gainsboro">
+    <h1 style="text-align: center;color: goldenrod;margin-top: 15px;">Employee Form</h1>
+   <div class="container">
+    <div class="col-6">
+        <form>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Name</h5></label>
+    <input type="text" class="form-control" placeholder="Enter Employee Name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Email</h5></label>
+    <input type="email" class="form-control" placeholder="Enter Employee Email Id">
+    <div class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Password</h5></label>
+    <input type="password" class="form-control" placeholder="Enter Employee Password">
+  </div>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Salary</h5></label>
+    <input type="number" class="form-control" placeholder="Enter Employee Salary">
+  </div>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Hobby</h5></label>
+   <div>
+     <input type="checkbox" class="form-check-input">
+     <label class="form-check-label" >Reading</label>
+
+     <input type="checkbox" class="form-check-input">
+     <label class="form-check-label" >Riding</label>
+
+     <input type="checkbox" class="form-check-input">
+     <label class="form-check-label" >Photography</label>
+
+      <input type="checkbox" class="form-check-input">
+     <label class="form-check-label" >Music</label>
+
+     <input type="checkbox" class="form-check-input">
+     <label class="form-check-label" >Sport</label>
+   </div>
+
+   <div class="mb-3">
+    <label class="form-label"><h5>Employee Designation</h5></label>
+   <div>
+    <select class="form-select">
+        <option selected>Select Employee Designation</option>
+        <option value="1">Owner</option>
+        <option value="2">CIO</option>
+        <option value="3">Company Secretary</option>
+        <option value="4">General manager</option>
+        <option value="5">Project Manager</option>
+        <option value="6">Team Leader</option>
+        <option value="7">IT Teck Support</option>
+        <option value="8">Cloud Engineers</option>
+        <option value="9">DevOps Engineers</option>
+        <option value="10">Full Stack Developer</option>
+        <option value="11">Frontend Developer</option>
+        <option value="12">Backend Developer</option>
+        <option value="13">Senior Developer</option>
+        <option value="14">Junior Developer</option>
+        <option value="15">UI/UX Designer</option>
+        <option value="16">Receptionist</option>
+    </select>
+   </div>
+
+  </div>
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Gender</h5></label>
+    <br>
+    <div>
+    <input type="radio" class="form-check-input" name="gender" value="male">
+    <label class="form-check-label">Male</label>
+    <input type="radio" class="form-check-input" name="gender" value="female">
+    <label class="form-check-label">Female</label>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"><h5>Employee Date of Joining</h5></label>
+    <input type="date" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+   </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+</body>
+</html>
