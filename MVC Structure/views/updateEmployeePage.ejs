@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Form</title>
+    <title>Update Employee</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -13,31 +13,31 @@
   <body style="background-color: gainsboro">
     <div class="container">
       <h1 style="text-align: center; color: goldenrod; margin-top: 15px">
-        Employee Form
+        Update Employee
       </h1>
       <div class="col-12 pt-5">
-        <form method="post" action="/employee/addEmployee">
+        <form method="post" action="/employee/update/<%= employee._id %>">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label"><h5>Employee Name</h5></label>
-            <input type="text" class="form-control" name="employee_name" value="" placeholder="Enter Employee Name" required />
+            <input type="text" class="form-control" name="employee_name" value="<%= employee.employee_name %>" placeholder="Enter Employee Name" required />
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label"><h5>Employee Email</h5></label>
-            <input type="email" class="form-control" name="employee_email" value="" placeholder="Enter Employee Email Id" required />
+            <input type="email" class="form-control" name="employee_email" value="<%= employee.employee_email %>" placeholder="Enter Employee Email Id" required />
             <div class="form-text">
-             <small>We'll never share your email with anyone else.</small> 
+              <small>We'll never share your email with anyone else.</small>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label"><h5>Employee Password</h5></label>
-            <input type="password" class="form-control" name="employee_password" value="" placeholder="Enter Employee Password" required />
+            <input type="password" class="form-control" name="employee_password" value="<%= employee.employee_password %>" placeholder="Enter Employee Password" required />
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label"><h5>Employee Salary</h5></label>
-            <input type="number" class="form-control" name="employee_salary" value="" placeholder="Enter Employee Salary" required />
+            <input type="number" class="form-control" name="employee_salary" value="<%= employee.employee_salary %>" placeholder="Enter Employee Salary" required />
           </div>
         </div>
         <div class="row">
@@ -64,7 +64,7 @@
                 "UI/UX Designer",
                 "Receptionist"
                 ].map((designation) => { %>
-                <option value="<%= designation %>"><%= designation %></option>
+                <option value="<%= designation %>" <%= (employee.employee_designation) === designation ? 'selected' : '' %>><%= designation %></option>
                 <% }) %>
               </select>
             </div>
@@ -73,9 +73,12 @@
             <label class="form-label"><h5>Employee Gender</h5></label>
             <br />
             <div>
-              <input type="radio" class="form-check-input" name="employee_gender" value="male" />
+              <input type="radio" class="form-check-input" name="employee_gender" value="male" <%= (employee.employee_gender) === 'male' ? 'checked' : '' %>
+              />
               <label class="form-check-label">Male</label>
-              <input type="radio" class="form-check-input" name="employee_gender" value="female" />
+              <input type="radio" class="form-check-input" name="employee_gender" value="female"
+                <%= (employee.employee_gender) === 'female' ? 'checked' : '' %>
+              />
               <label class="form-check-label">Female</label>
             </div>
           </div>
@@ -84,15 +87,15 @@
             <label class="form-label"><h5>Employee Hobby</h5></label>
             <div>
               <% [ "Reading", "Riding", "Photography", "indoor Games", "Music", "Sport" ].map((hobby) => { %>
-              <input type="checkbox" class="form-check-input" name="employee_hobby" value="<%= hobby %>" />
+              <input type="checkbox" class="form-check-input" name="employee_hobby" value="<%= hobby %>"
+                <%= (employee.employee_hobby && employee.employee_hobby.includes(hobby)) ? 'checked' : '' %>
+              />
               <label class="form-check-label"><%= hobby %></label>
               <% }) %>
             </div>
           </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-success">Update</button>
         </form>
-        <a href="/employee/allEmployeePage" style="text-decoration: none;">View Employee</a>
       </div>
     </div>
 

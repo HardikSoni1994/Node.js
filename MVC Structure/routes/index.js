@@ -9,5 +9,5 @@ route.get('/', homePage);
 route.get('/about', aboutPage);
 route.get('/contact', contactPage);
 
-route.use('/employee', require('./emp.route'))
+route.use('/employee', require('./emp.route'));
 module.exports = route;
